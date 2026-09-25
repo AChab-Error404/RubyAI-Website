@@ -80,6 +80,11 @@
   $("new-chat").addEventListener("click", () => { messages.replaceChildren(); welcome.classList.remove("hidden"); prompt.focus(); });
   $("clear-chat").addEventListener("click", () => { messages.replaceChildren(); welcome.classList.remove("hidden"); });
   document.querySelectorAll("[data-toast]").forEach((button) => button.addEventListener("click", () => { addMessage("assistant", button.dataset.toast || ""); }));
+  $("attach-button").addEventListener("click", () => { addMessage("assistant", "Les pièces jointes ne sont pas encore activées dans cette version. Le noyau local reste limité aux outils explicitement autorisés."); });
+  document.querySelectorAll(".recent-chat").forEach((button) => button.addEventListener("click", () => {
+    document.querySelectorAll(".recent-chat").forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+  }));
   const dialog = $("settings-dialog");
   const openSettings = () => { $("api-endpoint").value = endpoint(); dialog.showModal(); };
   $("settings-button").addEventListener("click", openSettings);
