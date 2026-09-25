@@ -29,23 +29,23 @@ html[data-theme="faye"] h1,html[data-theme="faye"] h2,html[data-theme="faye"] .b
 .connect-action{margin-top:16px}
 .connect-button{padding:9px 14px;min-height:36px}
 .theme-options{grid-template-columns:repeat(3,minmax(0,1fr))}
-.halley-swatch{background:radial-gradient(circle at 72% 24%,#c5e1ff 0 8%,transparent 10%),linear-gradient(145deg,#171626 0 45%,#657db5 46% 61%,#252036 62%)}
-html[data-theme="halley"]{color-scheme:dark;--bg:#11101e;--sidebar:#151423;--panel:#1d1b2d;--line:#3c3853;--muted:#aaa7c3;--text:#f7f8ff;--accent:#f3f5ff;--accent-soft:#252442;--bubble:#232137;--focus:#c0d9ff;--particle:#57e7ff;--halley-blue:#8db6ff}
-html[data-theme="halley"] body{background:radial-gradient(ellipse at 71% 7%,#5765a433,transparent 37%),radial-gradient(ellipse at 22% 56%,#47326a25,transparent 42%),linear-gradient(150deg,#11101e,#191729 55%,#11101e)}
-html[data-theme="halley"] .chat-panel{background:radial-gradient(ellipse at 62% 4%,#536eaf20,transparent 40%),transparent}
-html[data-theme="halley"] .sidebar{box-shadow:inset -1px 0 #9db8e522}
-html[data-theme="halley"] .topbar{background:#11101ebd}
-html[data-theme="halley"] .composer{background:#1c1a2c;border-color:#45415f;box-shadow:0 18px 55px #05040c80}
-html[data-theme="halley"] .send-button,html[data-theme="halley"] .primary-button{background:linear-gradient(150deg,#ffffff,#e6eeff 48%,#9ebeff);color:#141628;border:1px solid #7ea4eb;box-shadow:inset 0 1px #fff9,0 0 16px #89baff35}
-html[data-theme="halley"] .settings-dialog{background:#1b192b;border-color:#7589c1}
-html[data-theme="halley"] .new-chat:hover,html[data-theme="halley"] .suggestions button:hover{border-color:#829ee0;background:#27243e}
-html[data-theme="halley"] .brand{color:#fff}
+.halley-swatch{background:linear-gradient(135deg,#fff 0 65%,#4d78c4 65% 76%,#dce8fa 76%)}
+html[data-theme="halley"]{color-scheme:light;--bg:#f5f8fd;--sidebar:#fff;--panel:#fff;--line:#d7e0ef;--muted:#5b6982;--text:#17243a;--accent:#426fb9;--accent-soft:#e7eef9;--bubble:#edf2f9;--focus:#3268bc;--particle:#26b9dc;--halley-blue:#3869b5}
+html[data-theme="halley"] body{background:radial-gradient(ellipse at 71% 7%,#dce9fb99,transparent 39%),radial-gradient(ellipse at 22% 56%,#edf4ffcc,transparent 42%),linear-gradient(150deg,#fff,#f1f5fc 55%,#fff)}
+html[data-theme="halley"] .chat-panel{background:radial-gradient(ellipse at 62% 4%,#d9e8ff72,transparent 40%),transparent}
+html[data-theme="halley"] .sidebar{box-shadow:inset -1px 0 #6685b51c}
+html[data-theme="halley"] .topbar{background:#ffffffd9}
+html[data-theme="halley"] .composer{background:#fff;border-color:#cbd8ea;box-shadow:0 18px 55px #28436a14}
+html[data-theme="halley"] .send-button,html[data-theme="halley"] .primary-button{background:linear-gradient(145deg,#fff 0 55%,#e7effb);color:#315f9f;border:1px solid #9cb5da;box-shadow:inset 0 1px #fff,0 0 16px #89baff20}
+html[data-theme="halley"] .settings-dialog{background:#fff;border-color:#9bb2d4}
+html[data-theme="halley"] .new-chat:hover,html[data-theme="halley"] .suggestions button:hover{border-color:#829ee0;background:#edf3fc}
+html[data-theme="halley"] .brand{color:#17243a}
 .floating-mascot{display:none!important}
 html[data-theme="halley"] .topbar-actions .icon-button,html[data-theme="halley"] .secondary-button{color:var(--halley-blue)}
 .chat-panel{position:relative;isolation:isolate;overflow:hidden}
-.chat-panel::before{content:"";position:absolute;inset:-12%;z-index:0;pointer-events:none;opacity:.23;background-image:radial-gradient(circle 1.2px at 50% 50%,var(--particle) 78%,transparent 100%),radial-gradient(circle 1.6px at 50% 50%,var(--particle) 72%,transparent 100%),radial-gradient(circle 1px at 50% 50%,var(--particle) 75%,transparent 100%);background-size:127px 139px,197px 181px,263px 229px;background-position:7px 19px,53px 83px,139px 41px;animation:particle-drift 32s ease-in-out infinite alternate}
+.chat-panel::before{content:"";position:absolute;inset:-12%;z-index:0;pointer-events:none;opacity:.36;background-image:radial-gradient(circle 1.8px at 50% 50%,var(--particle) 78%,transparent 100%),radial-gradient(circle 2px at 50% 50%,var(--particle) 72%,transparent 100%),radial-gradient(circle 1.5px at 50% 50%,var(--particle) 75%,transparent 100%);background-size:127px 139px,197px 181px,263px 229px;background-position:7px 19px,53px 83px,139px 41px;animation:particle-drift 8s ease-in-out infinite alternate;will-change:transform,background-position}
 .chat-panel>*{position:relative;z-index:1}
-@keyframes particle-drift{from{background-position:7px 19px,53px 83px,139px 41px;opacity:.15}to{background-position:46px -24px,17px 123px,187px -31px;opacity:.29}}
+@keyframes particle-drift{from{transform:translate3d(-2.5%,1%,0);background-position:7px 19px,53px 83px,139px 41px;opacity:.22}to{transform:translate3d(2.5%,-1%,0);background-position:137px -114px,-93px 223px,267px -111px;opacity:.52}}
 .mascot{width:99px;height:99px}
 .message-avatar{width:28px;height:28px}
 .tiny-mascot{width:25px;height:25px}

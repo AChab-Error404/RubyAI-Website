@@ -363,7 +363,7 @@
     document.querySelector(`input[name="theme"][value="${selected}"]`).checked = true;
     try { localStorage.setItem(themeKey, selected); } catch (_) { /* Appearance still applies for this tab. */ }
     const meta = document.querySelector('meta[name="theme-color"]');
-    meta.content = selected === "faye" ? "#21192d" : selected === "halley" ? "#11101e" : "#0b0b0e";
+    meta.content = selected === "faye" ? "#21192d" : selected === "halley" ? "#f5f8fd" : "#0b0b0e";
   }
 
   function applyMascotPreference() {
