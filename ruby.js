@@ -18,6 +18,7 @@
   function setDrawer(open) {
     sidebar.classList.toggle("open", open);
     backdrop.classList.toggle("open", open);
+    backdrop.setAttribute("aria-hidden", String(!open));
     $("mobile-menu").setAttribute("aria-expanded", String(open));
   }
 
