@@ -22,7 +22,7 @@ html[data-theme="faye"] .send-button,html[data-theme="faye"] .primary-button{bac
 .connect-button{padding:8px 13px;border-color:var(--accent);color:var(--text)}
 .history-title{min-width:0;border:0;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer}
 html[data-theme="faye"] h1,html[data-theme="faye"] h2,html[data-theme="faye"] .brand,html[data-theme="faye"] .topbar-title strong{font-family:Constantia,Cambria,Georgia,serif}
-.message-avatar-button{position:relative;display:grid;place-items:center;width:44px;height:44px;flex:none;border:0;border-radius:9px;background:transparent;padding:1px;cursor:pointer}
+.message-avatar-button{position:relative;display:grid;place-items:center;width:46.2px;height:46.2px;flex:none;border:0;border-radius:9px;background:transparent;padding:1px;cursor:pointer}
 .message-avatar-button:hover{background:var(--accent-soft)}
 .message-mascot-hint{display:none;position:absolute;z-index:5;left:0;top:calc(100% + 5px);width:max-content;max-width:min(220px,70vw);padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--text);font-size:10px;line-height:1.4;text-align:left;white-space:normal;box-shadow:0 7px 22px #0005}
 .message-mascot-hint.visible{display:block}
@@ -47,7 +47,7 @@ html[data-theme="halley"] .topbar-actions .icon-button,html[data-theme="halley"]
 .chat-panel>*{position:relative;z-index:1}
 @keyframes particle-drift{from{transform:translate3d(-2.5%,1%,0);background-position:7px 19px,53px 83px,139px 41px;opacity:.22}to{transform:translate3d(2.5%,-1%,0);background-position:137px -114px,-93px 223px,267px -111px;opacity:.52}}
 .mascot{width:104px;height:104px}
-.message-avatar{width:40px;height:40px}
+.message-avatar{width:42px;height:42px}
 .tiny-mascot{width:26.25px;height:26.25px}
 @media(max-width:720px){.mascot{width:90px;height:90px}.chat-panel::before{opacity:.16}}
 @media(max-width:720px){html,body{width:100%;max-width:100vw;overflow-x:hidden}.app-shell{width:100vw;overflow:hidden}.app-shell,.chat-panel,.topbar,.conversation,.composer-area{width:100%;min-width:0;max-width:100%}.chat-panel{overflow:hidden}.topbar-leading{flex:1;min-width:0}.topbar-title{min-width:0}.topbar-title small{white-space:nowrap}.topbar-actions{flex:none;margin-left:auto}.welcome-block,.suggestions{width:calc(100vw - 28px);min-width:0;max-width:calc(100vw - 28px);overflow:hidden}.welcome-block h1{display:block;width:100%;max-width:100%;font-size:20px;line-height:1.25;overflow-wrap:anywhere;white-space:normal;text-wrap:balance}.welcome-block>p{display:block;width:100%;max-width:100%;font-size:12px;overflow-wrap:anywhere;white-space:normal}.suggestions{grid-template-columns:minmax(0,1fr)}.suggestions button{width:100%;min-width:0;overflow-wrap:anywhere;white-space:normal}.suggestions button span{flex:none}.composer-note{display:flex;justify-content:center;flex-wrap:wrap;gap:4px;padding:0 5px;line-height:1.5}}
