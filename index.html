@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0b0d">
+    <meta name="description" content="Ruby AI — assistant local, sûr et explicable.">
+    <title>Ruby AI — Assistant local</title>
+    <link rel="stylesheet" href="ruby.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navigation Ruby AI">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">R</div>
+          <div>
+            <div class="brand-name">Ruby AI</div>
+            <div class="brand-subtitle">Noyau local sécurisé</div>
+          </div>
+        </div>
+
+        <button class="new-chat" id="new-chat" type="button">
+          <span aria-hidden="true">＋</span> Nouvelle conversation
+        </button>
+
+        <div class="sidebar-label">Espace de travail</div>
+        <nav class="main-nav">
+          <button class="nav-item active" type="button"><span>✦</span> Assistant</button>
+          <button class="nav-item" type="button" data-toast="Les sources apparaîtront ici après une recherche Web."><span>⌁</span> Sources</button>
+          <button class="nav-item" type="button" data-toast="Les outils restent contrôlés par Ruby."><span>◈</span> Outils utilisés</button>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="privacy-card">
+          <div class="privacy-icon">✓</div>
+          <div>
+            <strong>Local par défaut</strong>
+            <p>Le modèle ne reçoit que le contexte autorisé.</p>
+          </div>
+        </div>
+        <button class="settings-link" id="settings-button" type="button"><span>⚙</span> Connexion locale</button>
+        <div class="account-row"><div class="account-avatar">A</div><span>Antoine</span><span class="account-more">•••</span></div>
+      </aside>
+
+      <main class="chat-panel">
+        <header class="topbar">
+          <div class="topbar-title">
+            <span class="online-dot" id="online-dot"></span>
+            <div><strong>Assistant Ruby</strong><small id="connection-label">Mode démonstration</small></div>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" id="clear-chat" type="button" title="Effacer la conversation">⌫</button>
+            <button class="icon-button" id="open-settings" type="button" title="Configurer la connexion">⚙</button>
+          </div>
+        </header>
+
+        <section class="conversation" id="conversation" aria-live="polite">
+          <div class="welcome-block" id="welcome-block">
+            <div class="mascot-wrap"><img src="assets/mascot/RubyMascotIdle.png" alt="Mascotte Ruby" class="mascot"></div>
+            <div class="eyebrow">RUBY AI · LOCAL &amp; EXPLICABLE</div>
+            <h1>Bonjour Antoine<span class="red">.</span></h1>
+            <p>Je peux réfléchir avec toi, expliquer, rédiger et t’aider à comprendre ton ordinateur — avec des faits mesurés et des limites claires.</p>
+            <div class="suggestions">
+              <button type="button" data-prompt="Explique-moi simplement ce qu'est la RAM."><b>✧</b><span>Explique-moi un sujet</span><small>Obtenir une réponse claire</small></button>
+              <button type="button" data-prompt="Aide-moi à organiser mes idées pour un projet."><b>⌁</b><span>Construire une idée</span><small>Réfléchir étape par étape</small></button>
+              <button type="button" data-prompt="Pourquoi le ciel est bleu ?"><b>◌</b><span>Poser une question</span><small>Discuter naturellement</small></button>
+            </div>
+          </div>
+          <div id="messages" class="messages"></div>
+          <div class="typing-row hidden" id="typing-row"><img src="assets/mascot/RubyMascotThinking.png" alt="" class="tiny-mascot"><span>Ruby réfléchit</span><i></i><i></i><i></i></div>
+        </section>
+
+        <footer class="composer-area">
+          <form class="composer" id="composer">
+            <button class="attach-button" type="button" title="Les fichiers seront ajoutés dans une prochaine version">＋</button>
+            <textarea id="prompt" rows="1" maxlength="4000" placeholder="Écris un message à Ruby…" aria-label="Message à Ruby"></textarea>
+            <button class="send-button" type="submit" title="Envoyer">↑</button>
+          </form>
+          <p class="composer-note">Ruby peut se tromper. Vérifie les informations importantes. <span>·</span> <button type="button" id="privacy-note">Confidentialité</button></p>
+        </footer>
+      </main>
+    </div>
+
+    <dialog id="settings-dialog" class="settings-dialog">
+      <form method="dialog" id="settings-form">
+        <button class="dialog-close" value="cancel" aria-label="Fermer">×</button>
+        <div class="eyebrow">CONNEXION OPTIONNELLE</div>
+        <h2>Relier Ruby à cet écran</h2>
+        <p class="dialog-copy">La page reste en démonstration tant qu’aucun pont local n’est disponible. Elle ne transmet rien à un serveur distant.</p>
+        <label for="api-endpoint">Adresse du pont local</label>
+        <input id="api-endpoint" type="url" inputmode="url" placeholder="http://127.0.0.1:8787/chat">
+        <div class="dialog-actions"><button class="secondary-button" value="cancel">Annuler</button><button class="primary-button" id="save-settings" value="default">Tester et enregistrer</button></div>
+        <p class="dialog-status" id="dialog-status" role="status"></p>
+      </form>
+    </dialog>
+    <script src="ruby.js"></script>
+  </body>
+</html>
