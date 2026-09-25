@@ -45,7 +45,7 @@
             <p>Le modèle ne reçoit que le contexte autorisé.</p>
           </div>
         </div>
-        <button class="settings-link" id="settings-button" type="button"><span>⚙</span> Connexion locale</button>
+        <button class="settings-link" id="settings-button" type="button"><span>⚙</span> Connexion Ruby</button>
         <div class="account-row"><div class="account-avatar">A</div><span>Antoine</span><span class="account-more">•••</span></div>
       </aside>
 
@@ -57,7 +57,7 @@
           </div>
           <div class="topbar-actions">
             <button class="icon-button" id="clear-chat" type="button" title="Effacer la conversation">⌫</button>
-            <button class="icon-button" id="open-settings" type="button" title="Configurer la connexion">⚙</button>
+            <button class="icon-button" id="open-settings" type="button" title="Configurer la connexion à Ruby">⚙</button>
           </div>
         </header>
 
@@ -94,9 +94,11 @@
         <button class="dialog-close" value="cancel" aria-label="Fermer">×</button>
         <div class="eyebrow">CONNEXION OPTIONNELLE</div>
         <h2>Relier Ruby à cet écran</h2>
-        <p class="dialog-copy">La page reste en démonstration tant qu’aucun pont local n’est disponible. Elle ne transmet rien à un serveur distant.</p>
-        <label for="api-endpoint">Adresse du pont local</label>
-        <input id="api-endpoint" type="url" inputmode="url" placeholder="http://127.0.0.1:8787/chat">
+        <p class="dialog-copy">Ruby reste sur ton ordinateur. Pour l’utiliser depuis un autre appareil, publie le pont local avec un tunnel HTTPS privé et authentifié. Ne redirige jamais directement le port de Ruby vers Internet.</p>
+        <label for="api-endpoint">Adresse HTTPS du pont Ruby</label>
+        <input id="api-endpoint" type="url" inputmode="url" placeholder="https://ruby.example.com/chat" autocomplete="url">
+        <label for="api-token">Jeton d’accès</label>
+        <input id="api-token" type="password" inputmode="text" placeholder="Jeton Bearer du pont local" autocomplete="off">
         <div class="dialog-actions"><button class="secondary-button" value="cancel">Annuler</button><button class="primary-button" id="save-settings" value="default">Tester et enregistrer</button></div>
         <p class="dialog-status" id="dialog-status" role="status"></p>
       </form>
