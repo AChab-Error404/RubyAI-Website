@@ -20,7 +20,11 @@ sur `127.0.0.1:8787`. Le pont :
   lanceur Ruby avec 32 octets aléatoires ;
 - accepte uniquement les origines HTTPS déclarées ;
 - expose seulement `GET /health` et `POST /chat` ;
-- sérialise les tours et délègue la validation à `chat_host` ;
+- n'accepte côté navigateur que `message`, `request_id`, `turn_id` et
+  `conversation_id` ; les champs de contrôle inconnus sont refusés ;
+- construit lui-même la requête interne Galaxy (`stream: false`) et préfixe
+  conversation/tour par `web-` pour éviter d'accéder à l'historique local ;
+- sérialise les tours et revalide la requête construite via `chat_host` ;
 - n'expose ni shell, ni fichiers, ni commandes projet ;
 - n'écrit pas le texte ou le jeton dans ses logs.
 
@@ -41,4 +45,10 @@ conservé dans l'URL ni dans le dépôt GitHub.
 
 En local uniquement, `http://127.0.0.1:8787/chat` reste accepté. Une URL HTTP
 distante est refusée par conception.
+
+Corps public de `POST /chat` (aucun champ de routage/modèle n'est accepté) :
+
+```json
+{"message":"Bonjour Ruby","request_id":"request-12345678","turn_id":"turn-12345678","conversation_id":"conversation-12345678"}
+```
 

@@ -70,7 +70,7 @@
     const response = await fetch(endpoint(), {
       method: "POST",
       headers,
-      body: JSON.stringify({ version: 1, request_id: requestId, turn_id: makeId("turn"), conversation_id: conversationId, text, stream: false, engine: "galaxy" }),
+      body: JSON.stringify({ request_id: requestId, turn_id: makeId("turn"), conversation_id: conversationId, message: text }),
       signal: AbortSignal.timeout(60000),
     });
     if (!response.ok) throw new Error(`Ruby a répondu HTTP ${response.status}`);
