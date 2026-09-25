@@ -10,7 +10,7 @@
   const form = $("composer");
   const prompt = $("prompt");
   const typing = $("typing-row");
-  const endpoint = () => sessionStorage.getItem(endpointKey) || "http://127.0.0.1:8787/chat";
+  const endpoint = () => sessionStorage.getItem(endpointKey) || "";
   const token = () => sessionStorage.getItem(tokenKey) || "";
 
   function endpointIsAllowed(value) {
@@ -37,7 +37,7 @@
       const avatar = document.createElement("img");
       avatar.className = "message-avatar";
       avatar.alt = "Mascotte Ruby";
-      avatar.src = "../assets/mascot/RubyMascotIdle.png";
+      avatar.src = "assets/mascot/RubyMascotIdle.png";
       item.appendChild(avatar);
     }
     const bubble = document.createElement("div");
@@ -54,6 +54,7 @@
   }
 
   async function askRuby(text) {
+    if (!endpoint()) throw new Error("Pont Ruby non configuré");
     const headers = { "Content-Type": "application/json", Accept: "application/json" };
     if (token()) headers.Authorization = `Bearer ${token()}`;
     const requestId = makeId("request");
@@ -93,7 +94,7 @@
     } catch (error) {
       typing.classList.add("hidden");
       setConnection(false, "Mode démonstration · Ruby non connectée");
-      addMessage("assistant", "Je ne parviens pas à joindre Ruby. Vérifie que le pont local fonctionne, que le tunnel HTTPS est actif et que le jeton d’accès est correct dans ⚙ Connexion locale.");
+      addMessage("assistant", "Je ne parviens pas à joindre Ruby. Vérifie que le pont local fonctionne, que le tunnel HTTPS est actif et que le jeton d’accès est correct dans ⚙ Connexion Ruby.");
       console.info("Ruby local bridge unavailable", error);
     }
   }
@@ -138,7 +139,7 @@
       });
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const health = await response.json();
-      if (!health.ok) throw new Error("pont non prêt");
+      if (health.status !== "ok") throw new Error("pont non prêt");
       sessionStorage.setItem(endpointKey, value);
       sessionStorage.setItem(tokenKey, accessToken);
       setConnection(true, "Connecté à Ruby en local");
