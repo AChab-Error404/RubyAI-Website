@@ -1,6 +1,8 @@
-# Page Web Ruby AI — pont GitHub Pages vers Ruby local
+# Ruby AI — page Web de l’adjoint personnel
 
-Cette page est un frontend statique rouge/noir pour GitHub Pages. Elle ne
+Cette page est un frontend statique rouge/noir pour GitHub Pages. Elle présente
+Ruby comme un adjoint personnel et professionnel : travail, rédaction,
+apprentissage, projets, organisation et recherche. Elle ne
 contient aucun pouvoir système et ne publie jamais le code Python, PowerShell,
 les journaux, les conversations ou les modèles locaux.
 

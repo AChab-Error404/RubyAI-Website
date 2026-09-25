@@ -12,6 +12,14 @@
   const typing = $("typing-row");
   const endpoint = () => sessionStorage.getItem(endpointKey) || "";
   const token = () => sessionStorage.getItem(tokenKey) || "";
+  const sidebar = $("sidebar");
+  const backdrop = $("drawer-backdrop");
+
+  function setDrawer(open) {
+    sidebar.classList.toggle("open", open);
+    backdrop.classList.toggle("open", open);
+    $("mobile-menu").setAttribute("aria-expanded", String(open));
+  }
 
   function endpointIsAllowed(value) {
     try {
@@ -50,7 +58,7 @@
 
   function setConnection(connected, label) {
     $("online-dot").classList.toggle("connected", connected);
-    $("connection-label").textContent = label;
+    $("connection-label").textContent = connected ? "Ruby connectée" : label;
   }
 
   async function askRuby(text) {
@@ -103,7 +111,9 @@
   prompt.addEventListener("input", () => { prompt.style.height = "auto"; prompt.style.height = `${Math.min(prompt.scrollHeight, 130)}px`; });
   prompt.addEventListener("keydown", (event) => { if (event.key === "Enter" && !event.shiftKey) { event.preventDefault(); void submit(prompt.value); } });
   document.querySelectorAll("[data-prompt]").forEach((button) => button.addEventListener("click", () => { void submit(button.dataset.prompt || ""); }));
-  $("new-chat").addEventListener("click", () => { conversationId = makeId("conversation"); messages.replaceChildren(); welcome.classList.remove("hidden"); prompt.focus(); });
+  const resetConversation = () => { conversationId = makeId("conversation"); messages.replaceChildren(); welcome.classList.remove("hidden"); prompt.focus(); setDrawer(false); };
+  $("new-chat").addEventListener("click", resetConversation);
+  $("topbar-new").addEventListener("click", resetConversation);
   $("clear-chat").addEventListener("click", () => { conversationId = makeId("conversation"); messages.replaceChildren(); welcome.classList.remove("hidden"); });
   document.querySelectorAll("[data-toast]").forEach((button) => button.addEventListener("click", () => { addMessage("assistant", button.dataset.toast || ""); }));
   $("attach-button").addEventListener("click", () => { addMessage("assistant", "Les pièces jointes ne sont pas encore activées dans cette version. Le noyau local reste limité aux outils explicitement autorisés."); });
@@ -111,6 +121,10 @@
     document.querySelectorAll(".recent-chat").forEach((item) => item.classList.remove("active"));
     button.classList.add("active");
   }));
+  $("mobile-menu").addEventListener("click", () => setDrawer(true));
+  $("drawer-close").addEventListener("click", () => setDrawer(false));
+  backdrop.addEventListener("click", () => setDrawer(false));
+  document.querySelectorAll(".nav-item:not(:disabled)").forEach((button) => button.addEventListener("click", () => setDrawer(false)));
   const dialog = $("settings-dialog");
   const openSettings = () => {
     $("api-endpoint").value = endpoint();
@@ -127,8 +141,8 @@
       $("dialog-status").textContent = "Utilise http://127.0.0.1 en local ou une URL HTTPS /chat pour un tunnel distant.";
       return;
     }
-    if (accessToken.length < 32) {
-      $("dialog-status").textContent = "Le jeton doit contenir au moins 32 caractères.";
+    if (accessToken.length < 43) {
+      $("dialog-status").textContent = "Le jeton doit contenir au moins 43 caractères URL-safe.";
       return;
     }
     $("dialog-status").textContent = "Test de connexion à Ruby…";

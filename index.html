@@ -2,110 +2,86 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0b0b0d">
-    <meta name="description" content="Ruby AI — assistant local, sûr et explicable.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0d">
+    <meta name="description" content="Ruby — ton adjoint personnel et professionnel, privé lorsque possible.">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: http://127.0.0.1:8787; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'">
     <meta http-equiv="Referrer-Policy" content="no-referrer">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
     <link rel="icon" type="image/png" href="assets/RubyLogo.png">
-    <title>Ruby AI — Assistant local</title>
+    <title>Ruby — Ton adjoint personnel</title>
     <link rel="stylesheet" href="ruby.css">
   </head>
   <body>
     <div class="app-shell">
-      <aside class="sidebar" aria-label="Navigation Ruby AI">
+      <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
+      <aside class="sidebar" id="sidebar" aria-label="Navigation Ruby AI">
         <div class="brand-row">
-          <div class="brand-mark"><img src="assets/RubyLogo.png" alt="Logo Ruby AI"></div>
-          <div>
-            <div class="brand-name">Ruby AI</div>
-            <div class="brand-subtitle">Noyau local sécurisé</div>
+          <div class="brand-mark"><img src="assets/RubyLogo.png" alt="Logo Ruby"></div>
+          <div class="brand-copy">
+            <div class="brand-name">Ruby</div>
+            <div class="brand-subtitle">Ton adjoint personnel</div>
           </div>
+          <button class="drawer-close" id="drawer-close" type="button" aria-label="Fermer le menu">×</button>
         </div>
 
-        <button class="new-chat" id="new-chat" type="button">
-          <span aria-hidden="true">＋</span> Nouvelle conversation
-        </button>
+        <button class="new-chat" id="new-chat" type="button"><span aria-hidden="true">＋</span> Nouvelle conversation</button>
 
         <div class="sidebar-label">Espace de travail</div>
         <nav class="main-nav">
-          <button class="nav-item active" type="button"><span>✦</span> Assistant</button>
-          <button class="nav-item" type="button" data-toast="Les sources apparaîtront ici après une recherche Web."><span>⌁</span> Sources</button>
-          <button class="nav-item" type="button" data-toast="Les outils restent contrôlés par Ruby."><span>◈</span> Outils utilisés</button>
+          <button class="nav-item active" type="button"><span>✦</span><b>Assistant</b></button>
+          <button class="nav-item soon" type="button" disabled aria-disabled="true"><span>◷</span><b>Aujourd’hui</b><em>Bientôt</em></button>
+          <button class="nav-item soon" type="button" disabled aria-disabled="true"><span>◇</span><b>Projets</b><em>Bientôt</em></button>
+          <button class="nav-item soon" type="button" disabled aria-disabled="true"><span>▱</span><b>Documents</b><em>Bientôt</em></button>
+          <button class="nav-item soon" type="button" disabled aria-disabled="true"><span>⌁</span><b>Études</b><em>Bientôt</em></button>
+          <button class="nav-item" type="button" data-toast="La recherche Web sourcée arrivera dans une prochaine version. La connexion Ruby actuelle reste limitée au bridge authentifié."><span>⌕</span><b>Recherche</b></button>
+          <button class="nav-item" type="button" data-toast="Ruby peut comprendre le contexte de ton ordinateur lorsque le bridge local autorisé est connecté. Aucune donnée PC n’est collectée automatiquement."><span>⌘</span><b>Ordinateur</b></button>
+          <button class="nav-item" type="button" data-toast="L’historique persistant sera disponible avec Ruby-Andromeda. Cette page conserve seulement la conversation ouverte."><span>↺</span><b>Historique</b></button>
         </nav>
 
-        <div class="sidebar-label recent-heading">Conversations</div>
-        <div class="recent-chats" aria-label="Conversations récentes">
-          <button class="recent-chat active" type="button"><span class="recent-dot"></span>Bienvenue dans Ruby</button>
-          <button class="recent-chat" type="button" data-toast="Les conversations seront conservées ici lorsqu’un pont local sera connecté."><span class="recent-dot"></span>Découvrir Ruby AI</button>
-        </div>
-
         <div class="sidebar-spacer"></div>
-        <div class="privacy-card">
-          <div class="privacy-icon">✓</div>
-          <div>
-            <strong>Local par défaut</strong>
-            <p>Le modèle ne reçoit que le contexte autorisé.</p>
-          </div>
-        </div>
+        <div class="privacy-card"><div class="privacy-icon">✓</div><div><strong>Privée lorsque possible</strong><p>Ruby ne transmet que le contexte que tu autorises.</p></div></div>
         <button class="settings-link" id="settings-button" type="button"><span>⚙</span> Connexion Ruby</button>
         <div class="account-row"><div class="account-avatar">A</div><span>Antoine</span><span class="account-more">•••</span></div>
       </aside>
 
       <main class="chat-panel">
         <header class="topbar">
-          <div class="topbar-title">
-            <span class="online-dot" id="online-dot"></span>
-            <div><strong>Assistant Ruby <span class="topbar-badge">BÊTA</span></strong><small id="connection-label">Mode démonstration</small></div>
+          <div class="topbar-leading">
+            <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Ouvrir le menu" aria-controls="sidebar" aria-expanded="false">☰</button>
+            <div class="topbar-title"><span class="online-dot" id="online-dot"></span><div><strong>Ruby <span class="topbar-badge">GALAXY</span></strong><small id="connection-label">Mode démonstration</small></div></div>
           </div>
-          <div class="topbar-actions">
-            <button class="icon-button" id="clear-chat" type="button" title="Effacer la conversation">⌫</button>
-            <button class="icon-button" id="open-settings" type="button" title="Configurer la connexion à Ruby">⚙</button>
-          </div>
+          <div class="topbar-actions"><button class="topbar-new" id="topbar-new" type="button">＋ <span>Nouvelle conversation</span></button><button class="icon-button" id="clear-chat" type="button" title="Effacer la conversation" aria-label="Effacer la conversation">⌫</button><button class="icon-button" id="open-settings" type="button" title="Configurer la connexion à Ruby" aria-label="Configurer la connexion à Ruby">⚙</button></div>
         </header>
 
         <section class="conversation" id="conversation" aria-live="polite">
           <div class="welcome-block" id="welcome-block">
             <div class="mascot-wrap"><img src="assets/mascot/RubyMascotIdle.png" alt="Mascotte Ruby" class="mascot"></div>
-            <div class="eyebrow">RUBY AI · LOCAL &amp; EXPLICABLE</div>
+            <div class="eyebrow">RUBY · ADJOINT PERSONNEL &amp; PROFESSIONNEL</div>
             <h1>Bonjour Antoine<span class="red">.</span></h1>
-            <p>Je peux réfléchir avec toi, expliquer, rédiger et t’aider à comprendre ton ordinateur — avec des faits mesurés et des limites claires.</p>
-            <div class="capability-strip" aria-label="Principes de Ruby AI"><span>● Local par défaut</span><span>◈ Contexte contrôlé</span><span>✦ Réponses explicables</span></div>
-            <div class="suggestions">
-              <button type="button" data-prompt="Explique-moi simplement ce qu'est la RAM."><b>✧</b><span>Explique-moi un sujet</span><small>Obtenir une réponse claire</small></button>
-              <button type="button" data-prompt="Aide-moi à organiser mes idées pour un projet."><b>⌁</b><span>Construire une idée</span><small>Réfléchir étape par étape</small></button>
-              <button type="button" data-prompt="Pourquoi le ciel est bleu ?"><b>◌</b><span>Poser une question</span><small>Discuter naturellement</small></button>
+            <h2>Qu’est-ce qu’on fait aujourd’hui&nbsp;?</h2>
+            <p>Je peux t’aider à travailler, réfléchir, apprendre, écrire, organiser tes projets ou simplement avancer sur ce qui compte pour toi.</p>
+            <div class="trust-strip" aria-label="Engagements Ruby"><span>Privée lorsque possible</span><span>Contexte contrôlé</span><span>Explications claires</span></div>
+            <div class="suggestions" aria-label="Commencer avec Ruby">
+              <button type="button" data-prompt="Prépare-moi pour ma journée."><b>◷</b><span>Travail</span><small>Prépare-moi pour ma journée</small></button>
+              <button type="button" data-prompt="Aide-moi à rédiger quelque chose."><b>✎</b><span>Rédaction</span><small>Aide-moi à rédiger quelque chose</small></button>
+              <button type="button" data-prompt="Explique-moi un sujet simplement."><b>⌁</b><span>Apprendre</span><small>Explique-moi un sujet</small></button>
+              <button type="button" data-prompt="Continuons un de mes projets."><b>◇</b><span>Projets</span><small>Continuons un projet</small></button>
+              <button type="button" data-prompt="Recherche quelque chose pour moi."><b>⌕</b><span>Recherche</span><small>Recherche quelque chose</small></button>
+              <button type="button" data-prompt="Aide-moi à m’organiser."><b>☷</b><span>Organisation</span><small>Aide-moi à m’organiser</small></button>
+              <button type="button" data-prompt="Regardons mon ordinateur."><b>⌘</b><span>Ordinateur</span><small>Une capacité contrôlée de Ruby</small></button>
             </div>
+            <p class="availability-note"><span class="availability-dot"></span> Certaines fonctions arrivent avec Ruby-Andromeda. Rien n’est simulé ici.</p>
           </div>
           <div id="messages" class="messages"></div>
           <div class="typing-row hidden" id="typing-row"><img src="assets/mascot/RubyMascotThinking.png" alt="" class="tiny-mascot"><span>Ruby réfléchit</span><i></i><i></i><i></i></div>
         </section>
 
-        <footer class="composer-area">
-          <form class="composer" id="composer">
-            <button class="attach-button" id="attach-button" type="button" title="Pièces jointes bientôt disponibles" aria-label="Pièces jointes bientôt disponibles">＋</button>
-            <textarea id="prompt" rows="1" maxlength="4000" placeholder="Écris un message à Ruby…" aria-label="Message à Ruby"></textarea>
-            <button class="send-button" type="submit" title="Envoyer">↑</button>
-          </form>
-          <p class="composer-note">Ruby peut se tromper. Vérifie les informations importantes. <span>·</span> <button type="button" id="privacy-note">Confidentialité</button></p>
-        </footer>
+        <footer class="composer-area"><form class="composer" id="composer"><button class="attach-button" id="attach-button" type="button" title="Pièces jointes bientôt disponibles" aria-label="Pièces jointes bientôt disponibles">＋</button><textarea id="prompt" rows="1" maxlength="4000" placeholder="Qu’est-ce qu’on prépare ensemble ?" aria-label="Message à Ruby"></textarea><button class="send-button" type="submit" title="Envoyer" aria-label="Envoyer">↑</button></form><p class="composer-note">Ruby peut se tromper. Vérifie les informations importantes. <span>·</span> <button type="button" id="privacy-note">Confidentialité</button></p></footer>
       </main>
     </div>
 
-    <dialog id="settings-dialog" class="settings-dialog">
-      <form method="dialog" id="settings-form">
-        <button class="dialog-close" value="cancel" aria-label="Fermer">×</button>
-        <div class="eyebrow">CONNEXION OPTIONNELLE</div>
-        <h2>Relier Ruby à cet écran</h2>
-        <p class="dialog-copy">Ruby reste sur ton ordinateur. Pour l’utiliser depuis un autre appareil, publie le pont local avec un tunnel HTTPS privé et authentifié. Ne redirige jamais directement le port de Ruby vers Internet.</p>
-        <label for="api-endpoint">Adresse HTTPS du pont Ruby</label>
-        <input id="api-endpoint" type="url" inputmode="url" placeholder="https://ruby.example.com/chat" autocomplete="url">
-        <label for="api-token">Jeton d’accès</label>
-        <input id="api-token" type="password" inputmode="text" placeholder="Jeton Bearer du pont local" autocomplete="off">
-        <div class="dialog-actions"><button class="secondary-button" value="cancel">Annuler</button><button class="primary-button" id="save-settings" value="default">Tester et enregistrer</button></div>
-        <p class="dialog-status" id="dialog-status" role="status"></p>
-      </form>
-    </dialog>
+    <dialog id="settings-dialog" class="settings-dialog"><form method="dialog" id="settings-form"><button class="dialog-close" value="cancel" aria-label="Fermer">×</button><div class="eyebrow">CONNEXION OPTIONNELLE</div><h2>Retrouver Ruby partout</h2><p class="dialog-copy">Ruby peut fonctionner en local. Pour la retrouver depuis un autre appareil, publie uniquement le bridge avec un tunnel HTTPS privé et authentifié. Le site ne reçoit jamais ton PC directement.</p><label for="api-endpoint">Adresse HTTPS du pont Ruby</label><input id="api-endpoint" type="url" inputmode="url" placeholder="https://ruby.example.com/chat" autocomplete="url"><label for="api-token">Jeton d’accès</label><input id="api-token" type="password" inputmode="text" placeholder="Jeton Bearer du bridge" autocomplete="off"><div class="dialog-actions"><button class="secondary-button" value="cancel">Annuler</button><button class="primary-button" id="save-settings" value="default">Tester et enregistrer</button></div><p class="dialog-status" id="dialog-status" role="status"></p></form></dialog>
     <script src="ruby.js"></script>
   </body>
 </html>
