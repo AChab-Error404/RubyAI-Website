@@ -34,7 +34,7 @@
       const address = document.createElement('p'); address.textContent = item.origin;
       const identity = document.createElement('small');
       identity.textContent = `${item.user_code} · installation ${item.installation_id}`;
-      const open = document.createElement('a'); open.textContent = 'Ouvrir ma Ruby';
+      const open = document.createElement('a'); open.textContent = 'Ouvrir mon Ruby';
       open.className = 'primary-button'; open.href = api.destination(item); open.rel = 'noreferrer';
       const remove = document.createElement('button'); remove.textContent = 'Oublier du carnet';
       remove.type = 'button'; remove.className = 'secondary-button';

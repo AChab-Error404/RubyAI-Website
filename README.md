@@ -11,7 +11,7 @@ d'installations non secret.
 1. Obtenir sur son propre PC Ruby l'origine HTTPS privée, l'installation_id et
    le code utilisateur. Le code humain n'est ni un mot de passe ni un moyen de
    découvrir seul un PC sur Internet.
-2. Ajouter ce descripteur au carnet, puis choisir « Ouvrir ma Ruby ».
+2. Ajouter ce descripteur au carnet, puis choisir « Ouvrir mon Ruby ».
 3. Le chat complet s'ouvre sur l'origine HTTPS privée de cette installation.
 4. Pour un nouvel appareil, ouvrir l'invitation courte créée sur le PC, comparer
    le challenge et obtenir l'approbation locale.
@@ -27,7 +27,7 @@ appareils et sessions se révoquent depuis le PC Ruby.
 
 Aucun tunnel, bridge de production, port public, règle de pare-feu ou modèle
 n'est démarré par ce site. Sans origine HTTPS privée disponible, la conversation
-reste indisponible. Il n'existe ni fallback vers une autre Ruby, ni table
+reste indisponible. Il n'existe ni fallback vers un autre Ruby, ni table
 publique de correspondance entre les utilisateurs et leurs PC.
 
 Le chemin privé prévu utilise Tailscale Serve, pas Funnel public. La recette
@@ -42,7 +42,7 @@ effacées automatiquement.
 ## Traçabilité de l'artefact
 
 - Source produit : `RubyBoosterAI`, branche `ruby-galaxy/windows-integration`.
-- Commit source : `2690618c96d260a606632b15422636f109388e0f`.
+- Commit source : `07624987fbc52c3cc8c3ebc21047ed3f3babf768`.
 - Publication du portail : 20 octobre 2026.
 - Export : `tools/Export-RubyWeb.ps1 -Variant PortalV2`.
 - `public-manifest.json` : 18 fichiers publics avec taille et SHA-256.
@@ -50,6 +50,6 @@ effacées automatiquement.
 - Exclus : client de chat privé, Python, PowerShell, configuration, modèles,
   invitations, clés, cookies, conversations, journaux et registre DPAPI.
 
-La CI du dépôt produit exécute les 26 tests frontend du carnet et du client
+La CI du dépôt produit exécute les 27 tests frontend du carnet et du client
 privé ; les contrôles d'export et de paquet sont également couverts côté
 PowerShell. Ces tests ne remplacent pas la recette HTTPS privée réelle.

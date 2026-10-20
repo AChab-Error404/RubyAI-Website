@@ -1,78 +1,78 @@
 {
-  "variant": "PortalV2",
   "schema_version": 1,
   "files": {
+    "remote.css": {
+      "sha256": "afaf812cb41e73dd83ec238bbdbddc260467f83b6b869427c51a1b27119f9e63",
+      "bytes": 10284
+    },
     "ruby.css": {
       "sha256": "524a4450aa400f47b381ba378b8c001cacd5528a63a628220c9bfb94199d9030",
       "bytes": 19711
-    },
-    "assets/mascot/RubyMascotWorking.png": {
-      "sha256": "1efec61c01ce6b24a08e9526a4dc9294ff65d1d2d86d41d39d4ca75376f07954",
-      "bytes": 101786
     },
     "assets/mascot/RubyMascotHappy.png": {
       "sha256": "fda229adc5e893724c1c409d115f408684aeed90d655b1610a8f461fc296fa33",
       "bytes": 81524
     },
-    "connection.js": {
-      "sha256": "e7414aba9fddc38cb644fd69a7f24828771ba76ce19013e3ae3856229c0e3640",
-      "bytes": 2486
-    },
-    "assets/mascot/RubyMascotSpeaking.png": {
-      "sha256": "ff37ecb3e983093ce00d653f09fbdad464ab27c6a996496b1a5cebb0ddde847e",
-      "bytes": 76826
-    },
-    "index.html": {
-      "sha256": "b058a3bcefab515b9b5f5a2a4f819c3311139f290323df57e7997b17df78fe0f",
-      "bytes": 2360
-    },
-    "assets/mascot/RubyMascotJump.png": {
-      "sha256": "f773799aceb1be4ad22f8e2de3dc83f4a91ee0eae5cf292d31d67714f8edf07d",
-      "bytes": 84988
-    },
-    "assets/mascot/RubyMascotWorkingHard.png": {
-      "sha256": "22f40886ded5cdf100555c055d5c41ee9a4ea7d6a64bb88ba7b7905267803356",
-      "bytes": 113621
-    },
-    "assets/RubyLogo.png": {
-      "sha256": "1ba15c392f430586bd2a319230c13fd647ea2a0c0b7bd1510761ed3473a3b112",
-      "bytes": 1943613
-    },
-    "assets/mascot/RubyMascotSad.png": {
-      "sha256": "b66e6328bcd46e7b2b1d90dcae1592b4ce6808d2f9c2ec41f64d002e464dd10a",
-      "bytes": 68680
-    },
-    "assets/mascot/RubyMascotError.png": {
-      "sha256": "f522f44f7902f8a2dbf18f13cb2766f60f70057dccc1d3384d32107c2c087e84",
-      "bytes": 87914
-    },
-    "assets/mascot/RubyMascotThinking.png": {
-      "sha256": "e0a3837c540d85980689bb3d44ccc358ab7a4d472f4aa520543ca03d22fcac6a",
-      "bytes": 78763
-    },
     "assets/mascot/RubyMascotPlaying.png": {
       "sha256": "c57d9b29af0f9d31baf2ff6dfbf9a20a34668197a99bf94e347234bd2e271676",
       "bytes": 80617
     },
-    "remote.css": {
-      "sha256": "afaf812cb41e73dd83ec238bbdbddc260467f83b6b869427c51a1b27119f9e63",
-      "bytes": 10284
+    "assets/mascot/RubyMascotIdle.png": {
+      "sha256": "c09e8eb6c5018b76451a79e369ed1bb5e1c74de0b9a574aea8570c9cb0ccc99b",
+      "bytes": 71979
+    },
+    "assets/RubyLogo.png": {
+      "sha256": "1ba15c392f430586bd2a319230c13fd647ea2a0c0b7bd1510761ed3473a3b112",
+      "bytes": 1943613
     },
     "assets/mascot/RubyMascotAlert.png": {
       "sha256": "a0e3859ecb4c9a465558eb953e7091b35a2da4ce232fa7316cc045100989fde7",
       "bytes": 74343
     },
     "connect.js": {
-      "sha256": "6b98801a1e30ae288f0cb712ea33d117f1d6e6d1977d307b3cd62d8cf55fa042",
-      "bytes": 2896
+      "sha256": "18980307cee4b893db6c4e3ad758889ffe978aea4153c33995959559c13ab771",
+      "bytes": 2897
+    },
+    "assets/mascot/RubyMascotError.png": {
+      "sha256": "f522f44f7902f8a2dbf18f13cb2766f60f70057dccc1d3384d32107c2c087e84",
+      "bytes": 87914
+    },
+    "assets/mascot/RubyMascotWorkingHard.png": {
+      "sha256": "22f40886ded5cdf100555c055d5c41ee9a4ea7d6a64bb88ba7b7905267803356",
+      "bytes": 113621
+    },
+    "assets/mascot/RubyMascotJump.png": {
+      "sha256": "f773799aceb1be4ad22f8e2de3dc83f4a91ee0eae5cf292d31d67714f8edf07d",
+      "bytes": 84988
+    },
+    "assets/mascot/RubyMascotWorking.png": {
+      "sha256": "1efec61c01ce6b24a08e9526a4dc9294ff65d1d2d86d41d39d4ca75376f07954",
+      "bytes": 101786
     },
     "connect.html": {
-      "sha256": "b058a3bcefab515b9b5f5a2a4f819c3311139f290323df57e7997b17df78fe0f",
-      "bytes": 2360
+      "sha256": "cd492ae6c4ba5997177c7032ec9d37f77f52554c7648208c7a2488cdda589d29",
+      "bytes": 2356
     },
-    "assets/mascot/RubyMascotIdle.png": {
-      "sha256": "c09e8eb6c5018b76451a79e369ed1bb5e1c74de0b9a574aea8570c9cb0ccc99b",
-      "bytes": 71979
+    "connection.js": {
+      "sha256": "e7414aba9fddc38cb644fd69a7f24828771ba76ce19013e3ae3856229c0e3640",
+      "bytes": 2486
+    },
+    "assets/mascot/RubyMascotThinking.png": {
+      "sha256": "e0a3837c540d85980689bb3d44ccc358ab7a4d472f4aa520543ca03d22fcac6a",
+      "bytes": 78763
+    },
+    "index.html": {
+      "sha256": "cd492ae6c4ba5997177c7032ec9d37f77f52554c7648208c7a2488cdda589d29",
+      "bytes": 2356
+    },
+    "assets/mascot/RubyMascotSad.png": {
+      "sha256": "b66e6328bcd46e7b2b1d90dcae1592b4ce6808d2f9c2ec41f64d002e464dd10a",
+      "bytes": 68680
+    },
+    "assets/mascot/RubyMascotSpeaking.png": {
+      "sha256": "ff37ecb3e983093ce00d653f09fbdad464ab27c6a996496b1a5cebb0ddde847e",
+      "bytes": 76826
     }
-  }
+  },
+  "variant": "PortalV2"
 }
