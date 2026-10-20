@@ -42,7 +42,7 @@ effacées automatiquement.
 ## Traçabilité de l'artefact
 
 - Source produit : `RubyBoosterAI`, branche `ruby-galaxy/windows-integration`.
-- Commit source : `07624987fbc52c3cc8c3ebc21047ed3f3babf768`.
+- Commit source : `6e220db122c6d8ddbea73d8cfc1706f7945ac58e`.
 - Publication du portail : 20 octobre 2026.
 - Export : `tools/Export-RubyWeb.ps1 -Variant PortalV2`.
 - `public-manifest.json` : 18 fichiers publics avec taille et SHA-256.
@@ -50,6 +50,10 @@ effacées automatiquement.
 - Exclus : client de chat privé, Python, PowerShell, configuration, modèles,
   invitations, clés, cookies, conversations, journaux et registre DPAPI.
 
-La CI du dépôt produit exécute les 27 tests frontend du carnet et du client
+Le fond affiche des micro-particules décoratives en CSS, sans script ou requête
+supplémentaire. Elles suivent la couleur du thème, laissent passer les clics et
+cessent de bouger avec la préférence système de réduction des animations.
+
+La CI du dépôt produit exécute les 33 tests frontend du carnet et du client
 privé ; les contrôles d'export et de paquet sont également couverts côté
 PowerShell. Ces tests ne remplacent pas la recette HTTPS privée réelle.
