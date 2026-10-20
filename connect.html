@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr" data-theme="ruby">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer"><title>Ruby — Mes installations</title>
+  <link rel="icon" type="image/png" href="assets/RubyLogo.png">
+  <link rel="stylesheet" href="ruby.css"><link rel="stylesheet" href="remote.css">
+</head>
+<body class="remote-page"><main class="connection-panel">
+  <a class="brand" href="connect.html"><img src="assets/RubyLogo.png" alt="">Ruby</a>
+  <h1>Ta Ruby. Sur ton ordinateur.</h1>
+  <p>Ce portail ne reçoit pas tes messages. Le chat s’ouvre sur l’adresse HTTPS privée de l’installation choisie.</p>
+  <div id="book" class="installation-book" aria-label="Mes installations"></div>
+  <details><summary>Ajouter une installation</summary>
+    <p>Recopie les informations fournies par le PC Ruby. Le code utilisateur est un identifiant, pas un mot de passe. Un nouvel appareil doit être approuvé sur ce PC.</p>
+    <p>La première connexion nécessite l’adresse HTTPS privée et l’identifiant fournis par ton PC. Le code seul ne permet pas de découvrir une installation sur Internet.</p>
+    <form id="add-installation" class="connection-form">
+      <label>Nom de cette Ruby<input name="label" maxlength="64" required autocomplete="off"></label>
+      <label>Code utilisateur<input name="user_code" maxlength="32" pattern="[A-Z0-9]{1,32}" required autocomplete="off"></label>
+      <label>Installation ID<input name="installation_id" required autocomplete="off" spellcheck="false"></label>
+      <label>Origine HTTPS privée<input name="origin" type="url" placeholder="https://mon-pc.mon-tailnet.ts.net" required autocomplete="off"></label>
+      <button class="primary-button" type="submit">Ajouter au carnet</button>
+    </form>
+  </details>
+  <p id="notice" role="status"></p>
+  <p class="remote-note">Le PC, Ruby et l’accès privé doivent être disponibles. Aucune Ruby centrale ne prend le relais. Le carnet reste dans ce navigateur et ne contient aucun jeton.</p>
+</main><script src="connection.js"></script><script src="connect.js"></script></body>
+</html>

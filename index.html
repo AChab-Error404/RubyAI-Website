@@ -1,87 +1,29 @@
 <!doctype html>
 <html lang="fr" data-theme="ruby">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="theme-color" content="#0b0b0e">
-    <meta name="description" content="Ruby — ton assistant personnel, avec une connexion locale que tu contrôles.">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: http://127.0.0.1:8787; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'">
-    <meta http-equiv="Referrer-Policy" content="no-referrer">
-    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-    <link rel="icon" type="image/png" href="assets/RubyLogo.png">
-    <title>Ruby — Assistant</title>
-    <link rel="stylesheet" href="ruby.css?v=chat-ui-14">
-  </head>
-  <body>
-    <div class="app-shell">
-      <div class="drawer-backdrop" id="drawer-backdrop" aria-hidden="true"></div>
-      <aside class="sidebar" id="sidebar" aria-label="Conversations">
-        <div class="sidebar-head">
-          <a class="brand" href="#" aria-label="Ruby, accueil"><img src="assets/RubyLogo.png" alt=""><span>Ruby</span></a>
-          <button class="icon-button drawer-close" id="drawer-close" type="button" aria-label="Fermer le menu">×</button>
-        </div>
-        <button class="new-chat" id="new-chat" type="button"><span aria-hidden="true">＋</span> Nouvelle conversation</button>
-        <div class="sidebar-caption">Récentes</div>
-        <nav id="conversation-list" class="conversation-list" aria-label="Conversations récentes"></nav>
-        <div class="sidebar-bottom">
-          <button class="settings-link clear-history" id="clear-history" type="button"><span aria-hidden="true">⌫</span> Effacer l’historique</button>
-          <div class="privacy-card"><span class="privacy-icon" aria-hidden="true">✓</span><p><strong>Tu gardes le contrôle</strong><br>Connexion Ruby facultative et privée.</p></div>
-          <button class="settings-link" id="settings-button" type="button"><span aria-hidden="true">⚙</span> Réglages</button>
-          <div class="account-row"><span class="account-avatar" aria-hidden="true">A</span><span>Antoine</span><span class="account-note">Ruby AI</span></div>
-        </div>
-      </aside>
-
-      <main class="chat-panel">
-        <header class="topbar">
-          <div class="topbar-leading">
-            <button class="icon-button mobile-menu" id="mobile-menu" type="button" aria-label="Ouvrir les conversations" aria-controls="sidebar" aria-expanded="false">☰</button>
-            <div class="topbar-title"><span class="online-dot" id="online-dot" aria-hidden="true"></span><div><strong>Ruby</strong><small id="connection-label">Non connectée</small></div></div>
-          </div>
-          <div class="topbar-actions">
-            <button class="icon-button" id="clear-chat" type="button" title="Effacer cette conversation" aria-label="Effacer cette conversation">⌫</button>
-            <button class="icon-button" id="open-settings" type="button" title="Réglages" aria-label="Réglages">⚙</button>
-          </div>
-        </header>
-
-        <section class="conversation" id="conversation" aria-label="Conversation">
-          <div class="welcome-block" id="welcome-block">
-            <button class="mascot-home" id="mascot-home" type="button" aria-label="Ruby, clique pour un conseil"><img src="assets/mascot/RubyMascotIdle.png" alt="Mascotte Ruby" class="mascot"><span class="mascot-hint" id="mascot-hint" role="status">Salut Antoine ! Clique pour un petit conseil.</span></button>
-            <h1>Qu’est-ce qu’on fait aujourd’hui&nbsp;?</h1>
-            <p>Écris simplement ce que tu as en tête. On avance ensemble.</p>
-            <div class="suggestions" aria-label="Choisir un type d’aide">
-              <button type="button" data-prompt="Aide-moi à préparer ou faire avancer une tâche professionnelle."><span aria-hidden="true">▤</span> Travail</button>
-              <button type="button" data-prompt="Aide-moi à rédiger ou corriger un texte."><span aria-hidden="true">✎</span> Rédaction</button>
-              <button type="button" data-prompt="Explique-moi un sujet étape par étape."><span aria-hidden="true">✦</span> Apprendre</button>
-              <button type="button" data-prompt="Aide-moi à clarifier les prochaines étapes de mon projet."><span aria-hidden="true">⌘</span> Projets</button>
-              <button type="button" data-prompt="Aide-moi à rechercher et vérifier des informations sur un sujet."><span aria-hidden="true">⌕</span> Recherche</button>
-              <button type="button" data-prompt="Aide-moi à organiser ma journée ou mes priorités."><span aria-hidden="true">◷</span> Organisation</button>
-              <button type="button" data-prompt="Aide-moi à comprendre ou diagnostiquer un problème sur mon ordinateur."><span aria-hidden="true">⌘</span> Ordinateur</button>
-            </div>
-          </div>
-          <div id="messages" class="messages" role="log" aria-live="polite" aria-relevant="additions text"></div>
-          <div class="typing-row hidden" id="typing-row" role="status"><img src="assets/mascot/RubyMascotThinking.png" alt="" class="tiny-mascot"><span>Ruby réfléchit</span><i></i><i></i><i></i></div>
-        </section>
-
-        <footer class="composer-area">
-          <form class="composer" id="composer"><textarea id="prompt" rows="1" maxlength="4000" placeholder="Message à Ruby" aria-label="Message à Ruby"></textarea><button class="send-button" id="send-button" type="submit" title="Envoyer" aria-label="Envoyer">↑</button></form>
-          <p class="composer-note">Ruby peut se tromper. Vérifie les informations importantes. <span>·</span> <button type="button" id="privacy-note">Confidentialité</button></p>
-        </footer>
-      </main>
-    </div>
-
-    <dialog id="settings-dialog" class="settings-dialog" aria-labelledby="settings-title">
-      <form method="dialog" id="settings-form">
-        <button class="dialog-close icon-button" value="cancel" aria-label="Fermer">×</button>
-        <div class="eyebrow">PERSONNALISATION</div><h2 id="settings-title">Réglages Ruby</h2>
-        <fieldset class="appearance"><legend>Apparence</legend><p>Choisis le style graphique de Ruby.</p><div class="theme-options"><label class="theme-card"><input type="radio" name="theme" value="ruby"><span class="theme-swatch ruby-swatch" aria-hidden="true"></span><span><strong>Ruby</strong><small>Noir &amp; rouge</small></span></label><label class="theme-card"><input type="radio" name="theme" value="faye"><span class="theme-swatch faye-swatch" aria-hidden="true"></span><span><strong>Faye</strong><small>Parchemin &amp; or</small></span></label><label class="theme-card"><input type="radio" name="theme" value="halley"><span class="theme-swatch halley-swatch" aria-hidden="true"></span><span><strong>Halley</strong><small>Blanc &amp; bleu</small></span></label></div></fieldset>
-        <label class="toggle-row"><input type="checkbox" id="mascot-toggle"><span><strong>Mascotte interactive</strong><small>Afficher Ruby près de la zone de saisie</small></span></label>
-        <div class="settings-divider"></div>
-        <div class="eyebrow">CONNEXION FACULTATIVE</div><p class="dialog-copy">Pour discuter avec Ruby sur ton ordinateur, configure ici son pont authentifié. Le site ne se connecte pas directement à ton PC.</p>
-        <label for="api-endpoint">Adresse du pont Ruby</label><input id="api-endpoint" type="url" inputmode="url" placeholder="https://ruby.example.com/chat" autocomplete="url">
-        <label for="api-token">Jeton d’accès</label><div class="token-field"><input id="api-token" type="password" placeholder="Jeton Bearer" autocomplete="off"><button type="button" class="secondary-button" id="toggle-token">Afficher</button></div>
-        <div class="dialog-actions"><button class="secondary-button" type="button" id="disconnect">Déconnecter</button><button class="secondary-button" value="cancel">Fermer</button><button class="primary-button" id="save-settings" value="default">Tester et enregistrer</button></div><p class="dialog-status" id="dialog-status" role="status"></p>
-      </form>
-    </dialog>
-    <script src="ruby.js?v=chat-ui-5"></script>
-  </body>
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer"><title>Ruby — Mes installations</title>
+  <link rel="icon" type="image/png" href="assets/RubyLogo.png">
+  <link rel="stylesheet" href="ruby.css"><link rel="stylesheet" href="remote.css">
+</head>
+<body class="remote-page"><main class="connection-panel">
+  <a class="brand" href="connect.html"><img src="assets/RubyLogo.png" alt="">Ruby</a>
+  <h1>Ta Ruby. Sur ton ordinateur.</h1>
+  <p>Ce portail ne reçoit pas tes messages. Le chat s’ouvre sur l’adresse HTTPS privée de l’installation choisie.</p>
+  <div id="book" class="installation-book" aria-label="Mes installations"></div>
+  <details><summary>Ajouter une installation</summary>
+    <p>Recopie les informations fournies par le PC Ruby. Le code utilisateur est un identifiant, pas un mot de passe. Un nouvel appareil doit être approuvé sur ce PC.</p>
+    <p>La première connexion nécessite l’adresse HTTPS privée et l’identifiant fournis par ton PC. Le code seul ne permet pas de découvrir une installation sur Internet.</p>
+    <form id="add-installation" class="connection-form">
+      <label>Nom de cette Ruby<input name="label" maxlength="64" required autocomplete="off"></label>
+      <label>Code utilisateur<input name="user_code" maxlength="32" pattern="[A-Z0-9]{1,32}" required autocomplete="off"></label>
+      <label>Installation ID<input name="installation_id" required autocomplete="off" spellcheck="false"></label>
+      <label>Origine HTTPS privée<input name="origin" type="url" placeholder="https://mon-pc.mon-tailnet.ts.net" required autocomplete="off"></label>
+      <button class="primary-button" type="submit">Ajouter au carnet</button>
+    </form>
+  </details>
+  <p id="notice" role="status"></p>
+  <p class="remote-note">Le PC, Ruby et l’accès privé doivent être disponibles. Aucune Ruby centrale ne prend le relais. Le carnet reste dans ce navigateur et ne contient aucun jeton.</p>
+</main><script src="connection.js"></script><script src="connect.js"></script></body>
 </html>
