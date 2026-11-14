@@ -50,8 +50,8 @@
       "sha256": "524a4450aa400f47b381ba378b8c001cacd5528a63a628220c9bfb94199d9030"
     },
     "index.html": {
-      "bytes": 2356,
-      "sha256": "cd492ae6c4ba5997177c7032ec9d37f77f52554c7648208c7a2488cdda589d29"
+      "bytes": 2435,
+      "sha256": "dbfc7f2528f163becd556c7d8ee10659df22d625146a8aebf5c9aed4d4033831"
     },
     "assets/mascot/RubyMascotAlert.png": {
       "bytes": 74343,
@@ -72,6 +72,26 @@
     "connection.js": {
       "bytes": 2486,
       "sha256": "e7414aba9fddc38cb644fd69a7f24828771ba76ce19013e3ae3856229c0e3640"
+    },
+    "gamma/index.html": {
+      "bytes": 23564,
+      "sha256": "c271a3f9140fbfb4399c764ca19002d23898af024cf3aca4b9fbe661ec9f052b"
+    },
+    "gamma/gamma.css": {
+      "bytes": 35961,
+      "sha256": "c43aa50c02fc5c153c0963f3e2b55da5637c78a589e43fd91b1f7fd351611eb4"
+    },
+    "gamma/gamma.js": {
+      "bytes": 103184,
+      "sha256": "200c88647c74fbc2418b0c0448d63f619510e45e8919fcc295501090860ef967"
+    },
+    "gamma/demo.js": {
+      "bytes": 3825,
+      "sha256": "820376ff31cb74559b5b70398f4eeba9c65e70649619f6a17d1db8980a042958"
+    },
+    "gamma/safe-render.js": {
+      "bytes": 11585,
+      "sha256": "d79bfd286854fbb4896b2af6852291191eb1e33b76556c58b662c9ccfb141fb3"
     }
   },
   "schema_version": 1
