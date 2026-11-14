@@ -50,8 +50,8 @@
       "sha256": "524a4450aa400f47b381ba378b8c001cacd5528a63a628220c9bfb94199d9030"
     },
     "index.html": {
-      "bytes": 2437,
-      "sha256": "9d4a0b8e0028c189b8bb64853792156ede6ecd31c6dea38b6a4342a7cf2a022a"
+      "bytes": 2424,
+      "sha256": "2fee02f3a319e945727d7644f1d70c32f0d3b88cf45476d20a7d491129bcd538"
     },
     "assets/mascot/RubyMascotAlert.png": {
       "bytes": 74343,
@@ -78,20 +78,12 @@
       "sha256": "02bb3f24de3bdc89655730edfd8d68a7a360c3a24eb69da58b7a435afff82a14"
     },
     "nova/index.html": {
-      "bytes": 12714,
-      "sha256": "db9538a8c535d920eb6d708d2025cd2af25cba6e3d5b2a7ee370440885b2060e"
+      "bytes": 1245,
+      "sha256": "06d7e35396cf5b381a632dc9360042b016d3fbaaf8924daecc957ef3efa05cb2"
     },
-    "nova/nova.js": {
-      "bytes": 28423,
-      "sha256": "1131fed11aef534d61b477bd1ed6f903559f67f3cbc1d4617a69369f50d1fb2f"
-    },
-    "nova/universe.css": {
-      "bytes": 27884,
-      "sha256": "bee7443c45d079baa151498164fb070633df3b1af17fb82a7496693e617a84dc"
-    },
-    "nova/safe-render.js": {
-      "bytes": 11388,
-      "sha256": "969f3f516d88172d113da32726539743dedfeb10218fec967fe2ce6314112f4b"
+    "nova/launch.js": {
+      "bytes": 714,
+      "sha256": "2569085d2e45027fde0954e80b188800351c54e8799705fbd0e8302904034cc6"
     }
   },
   "schema_version": 1
