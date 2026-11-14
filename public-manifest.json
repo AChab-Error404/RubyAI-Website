@@ -50,8 +50,8 @@
       "sha256": "524a4450aa400f47b381ba378b8c001cacd5528a63a628220c9bfb94199d9030"
     },
     "index.html": {
-      "bytes": 2435,
-      "sha256": "dbfc7f2528f163becd556c7d8ee10659df22d625146a8aebf5c9aed4d4033831"
+      "bytes": 2437,
+      "sha256": "9d4a0b8e0028c189b8bb64853792156ede6ecd31c6dea38b6a4342a7cf2a022a"
     },
     "assets/mascot/RubyMascotAlert.png": {
       "bytes": 74343,
@@ -74,24 +74,24 @@
       "sha256": "e7414aba9fddc38cb644fd69a7f24828771ba76ce19013e3ae3856229c0e3640"
     },
     "gamma/index.html": {
-      "bytes": 23564,
-      "sha256": "c271a3f9140fbfb4399c764ca19002d23898af024cf3aca4b9fbe661ec9f052b"
+      "bytes": 297,
+      "sha256": "02bb3f24de3bdc89655730edfd8d68a7a360c3a24eb69da58b7a435afff82a14"
     },
-    "gamma/gamma.css": {
-      "bytes": 35961,
-      "sha256": "c43aa50c02fc5c153c0963f3e2b55da5637c78a589e43fd91b1f7fd351611eb4"
+    "nova/index.html": {
+      "bytes": 12714,
+      "sha256": "db9538a8c535d920eb6d708d2025cd2af25cba6e3d5b2a7ee370440885b2060e"
     },
-    "gamma/gamma.js": {
-      "bytes": 103184,
-      "sha256": "200c88647c74fbc2418b0c0448d63f619510e45e8919fcc295501090860ef967"
+    "nova/nova.js": {
+      "bytes": 28423,
+      "sha256": "1131fed11aef534d61b477bd1ed6f903559f67f3cbc1d4617a69369f50d1fb2f"
     },
-    "gamma/demo.js": {
-      "bytes": 3825,
-      "sha256": "820376ff31cb74559b5b70398f4eeba9c65e70649619f6a17d1db8980a042958"
+    "nova/universe.css": {
+      "bytes": 27884,
+      "sha256": "bee7443c45d079baa151498164fb070633df3b1af17fb82a7496693e617a84dc"
     },
-    "gamma/safe-render.js": {
-      "bytes": 11585,
-      "sha256": "d79bfd286854fbb4896b2af6852291191eb1e33b76556c58b662c9ccfb141fb3"
+    "nova/safe-render.js": {
+      "bytes": 11388,
+      "sha256": "969f3f516d88172d113da32726539743dedfeb10218fec967fe2ce6314112f4b"
     }
   },
   "schema_version": 1
